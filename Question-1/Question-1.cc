@@ -42,7 +42,7 @@ int main()
 {
     int x = -10;
     int y = 15;
-    std::cout << " (" << x << ", " << y << ")" << std::endl;
+    std::cout << " (" << x << "," << y << ")" << std::endl;
 
     // print integer ratios of y:x till x < y
     // invalid ratios should print 0
@@ -50,7 +50,7 @@ int main()
     while (x < y)
     {
         if (x == 0) std::cout << "ratio: 0" << std::endl;
-        else std::cout << "ratio: " << (x / std::gcd(x, y)) << ":" << (y / std::gcd(x, y)) << std::endl;
+        else std::cout << "ratio: " << (y / std::gcd(x, y)) << ":" << (x / std::gcd(x, y)) << std::endl;
         x++;
         y--;
     }
@@ -72,7 +72,7 @@ int main()
     m[1] = 2;
 
     int n = 1;
-    int *p = &n;
+    int* p = &n;
     show_output(p);
 
     // Initialise a person on the heap with the use of smart pointers (unique_ptr) instead.

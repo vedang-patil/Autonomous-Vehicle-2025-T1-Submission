@@ -15,3 +15,16 @@ endforeach()
 
 
 # Question 4: Extension Task. You need to integrate Google Tests here
+include(FetchContent)
+FetchContent_Declare(
+	googletest
+	URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+add_executable(Question-4-out Question-4/Question-4.cc)
+
+target_link_libraries(Question-4-out gtest_main gmock_main pthread)
+add_test(question-4 Question-4-out)

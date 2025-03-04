@@ -50,6 +50,11 @@ public:
 
 };
 
+class MockObserver: public Observer {
+public:
+	MOCK_METHOD(void, ReactToEvent, (Actor* actor), (override));
+};
+
 // This will not compile until you implement MockObserver.
 
 TEST(ActorTest, ObserversAreCalled) {

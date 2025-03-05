@@ -22,5 +22,14 @@
 // https://www.csselectronics.com/pages/can-dbc-file-database-intro
 
 int main() {
-    return 0;
+    std::ifstream dumpFile("candump.log");
+    std::ofstream outputFile("output.txt");
+
+    std::string unixTime, interface, idAndData;
+    while (dumpFile >> unixTime >> interface >> idAndData) {
+        if (!(idAndData[0] == '7' && idAndData[1] == '0' && idAndData[2] == '5')) continue;
+        int val = std::stoi(idAndData.substr(12, 4), nullptr, 16);
+        double wheelSpeedRR = val * 0.1;
+        outputFile << unixTime << ": " << wheelSpeedRR << "\n";
+    }
 }

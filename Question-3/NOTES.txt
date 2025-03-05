@@ -1,0 +1,16 @@
+CAN Message:
+- Name: ECU_WheelSpeed
+- CAN ID: 11 Bit Standard, so 3 hex digits (DEC:1797/HEX:705)
+- Data Length Code: 8
+
+Signal:
+- Name: WheelSpeedRR
+- Type: Unsigned
+- Order: Big Endian
+- Mode: Signal
+- Start: 32
+- Length: 16
+- Factor: 0.1
+- Offset: 0
+- Min/Max: *NOT DEFINED*
+- Unit: km/h

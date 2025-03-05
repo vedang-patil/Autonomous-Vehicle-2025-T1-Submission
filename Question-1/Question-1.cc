@@ -22,7 +22,7 @@ public:
         : mElements(list) {}
 };
 
-struct Person
+struct person
 {
     int age;
     float weight;
@@ -31,11 +31,6 @@ struct Person
 void show_output(const int **pp)
 {
     printf("%p : %p : %d", (void*)pp, (void*)*pp, **pp);
-}
-
-void show_output(const int *pp)
-{
-    printf("%p : %d", (void*)pp, *pp);
 }
 
 int main()
@@ -49,7 +44,7 @@ int main()
 
     while (x < y)
     {
-        if (x == 0) std::cout << "0" << std::endl;
+        if (x == 0) std::cout << "ratio: 0" << std::endl;
         else std::cout << "ratio: " << (y / std::gcd(x, y)) << ":" << (x / std::gcd(x, y)) << std::endl;
         x++;
         y--;
@@ -72,11 +67,12 @@ int main()
     m[1] = 2;
 
     int n = 1;
-    int* p = &n;
-    show_output(p);
+    const int* p = &n;
+    const int** pp = &p;
+    show_output(pp);
 
     // Initialise a person on the heap with the use of smart pointers (unique_ptr) instead.
-    std::unique_ptr<Person> ptr = std::make_unique<Person>();
+    std::unique_ptr<person> ptr = std::make_unique<person>();
     ptr->age = 10;
     ptr->weight = 55.5;
 

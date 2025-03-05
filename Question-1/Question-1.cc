@@ -45,7 +45,7 @@ int main()
     while (x < y)
     {
         if (x == 0) std::cout << "ratio: 0" << std::endl;
-        else std::cout << "ratio: " << (y / std::gcd(x, y)) << ":" << (x / std::gcd(x, y)) << std::endl;
+        else std::cout << "ratio: " << (y / x) << std::endl;
         x++;
         y--;
     }

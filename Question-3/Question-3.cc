@@ -27,8 +27,13 @@ int main() {
 
     std::string unixTime, interface, idAndData;
     while (dumpFile >> unixTime >> interface >> idAndData) {
+        // Discard random entries
         if (!(idAndData[0] == '7' && idAndData[1] == '0' && idAndData[2] == '5')) continue;
+        // Instead of getting the id as a substring, just take the exact hex digits that corespond to the segment we are looking for,
+        // which is 16 binary digits from idx 32 of the binary respresentation so that coresponds to 4 hex digits from idx 8 of the hex
+        // representation. First four characters in the string are discared since they are part of the id and seperator.
         int val = std::stoi(idAndData.substr(12, 4), nullptr, 16);
+        // Multiply with factor, and offset is 0
         double wheelSpeedRR = val * 0.1;
         outputFile << unixTime << ": " << wheelSpeedRR << "\n";
     }
